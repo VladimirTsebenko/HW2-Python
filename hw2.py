@@ -25,9 +25,11 @@ numbers = f.read()
 print(numbers)
 print (type(numbers))
 f.close()
-array = []
-for line in numbers:  # read rest of lines
-    array.append([int(x) for x in line.split()])
+
+array = [int(sub.split()[1]) for sub in numbers]
+
+# for line in numbers:  # read rest of lines
+#   array.append([int(x) for x in line.split()])
 print(array)
 print(type(array))
 for i in array:
@@ -46,3 +48,6 @@ f.close()
 
 # 4. Написать функцию word_counter которая считает количество слов в тексте.
 #  Функция должна принимать либо путь к файлу, либо строку с текстом
+
+
+
