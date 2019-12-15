@@ -57,21 +57,11 @@ dist.close()
 # 4. Написать функцию word_counter которая считает количество слов в тексте.
 #  Функция должна принимать либо путь к файлу, либо строку с текстом
 
-list = [11, 22, 33, 44, 55]
+str = 'a e r t y y se sfd sdfsf'    
 
-# print original list
-print ("Original list:")
-print (list)
-print (type(list))
+def word_counter(s):
+    words = str.split()
+    print('Number of words: ',len(words))
 
-# loop to traverse each element in the list
-# and, remove elements
-# which are EVEN (divisible by 2)
-for i  in list:
-	if(i%2 == 0):
-	    list.remove(i)
+word_counter(str)
 
-# print list after removing EVEN elements
-print ("list after removing EVEN numbers:")
-print (list)
-print (type(list))
