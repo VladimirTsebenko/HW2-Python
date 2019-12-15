@@ -20,23 +20,15 @@ print("Fibonacci sequence is: ", fibonacci)
 
 # 2. Дан текстовый файл, содержащий целые числа. Удалить из него все четные числа.
 
-f = open("numbers.txt", "r")
-numbers = f.read()
+with open('numbers.txt') as f:
+    numbers = [int(x) for x in next(f).split()] # read first line
 print(numbers)
-print (type(numbers))
-f.close()
-
-array = [int(sub.split()[1]) for sub in numbers]
-
-# for line in numbers:  # read rest of lines
-#   array.append([int(x) for x in line.split()])
-print(array)
-print(type(array))
-for i in array:
-    if (i % 2 != 0):
-        array.remove(i)
-print (array)
-
+print(type(numbers))
+for i  in numbers:
+    	if(i%2 == 0):
+	        numbers.remove(i)
+print(numbers)
+print(type(numbers))
 
 # 3. Дан текстовый файл. Создать новый файл, каждая строка которого получается из соответствующей строки
 #  исходного файла перестановкой слов в обратном порядке.
@@ -49,5 +41,21 @@ f.close()
 # 4. Написать функцию word_counter которая считает количество слов в тексте.
 #  Функция должна принимать либо путь к файлу, либо строку с текстом
 
+list = [11, 22, 33, 44, 55]
 
+# print original list
+print ("Original list:")
+print (list)
+print (type(list))
 
+# loop to traverse each element in the list
+# and, remove elements
+# which are EVEN (divisible by 2)
+for i  in list:
+	if(i%2 == 0):
+	    list.remove(i)
+
+# print list after removing EVEN elements
+print ("list after removing EVEN numbers:")
+print (list)
+print (type(list))
