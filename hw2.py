@@ -23,7 +23,7 @@ print("Fibonacci sequence is: ", fibonacci)
 f = open('numbers.txt', 'r+')
 lines = f.read().split()
 numbers =[int(e.strip()) for e in lines]
-print(numbers)
+#print(numbers)
 odd = []
 for num in numbers:
     if(num % 2 != 0):
@@ -32,18 +32,8 @@ for num in numbers:
         f.write(str(odd))
         f.truncate()
         f.flush()
-
-print(odd)
-print(type(odd))
-print(type(odd[1]))
-       
-a = ['a', 'b', 'c']
-for i in a:
-    print(i,end = ' ')
-
-
-
-
+f.close()
+#print(odd)
 
 
 # 3. Дан текстовый файл. Создать новый файл, каждая строка которого получается из соответствующей строки
