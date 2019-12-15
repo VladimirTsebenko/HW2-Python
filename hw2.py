@@ -36,13 +36,23 @@ f.close()
 #print(odd)
 
 
-# 3. Дан текстовый файл. Создать новый файл, каждая строка которого получается из соответствующей строки
+# 3. Дан текстовый файл. Создать новый файл, каждая строка которого получается
+#  из соответствующей строки
 #  исходного файла перестановкой слов в обратном порядке.
 
-f = open("words.txt", "r")
-text = f.read()
-print(text)
-f.close()
+src = open("words.txt", "r")
+text = src.readlines()
+print (text)
+for lines in range(0, len(text)):
+    text[lines] = text[lines].split()[::-1]
+dist = open("rewords.txt", "w")
+for line in text:
+    line = " ".join(line)+ "\n"
+    dist.write(line)
+src.close()
+dist.close()
+
+
 
 # 4. Написать функцию word_counter которая считает количество слов в тексте.
 #  Функция должна принимать либо путь к файлу, либо строку с текстом
