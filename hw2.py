@@ -57,11 +57,55 @@ dist.close()
 # 4. Написать функцию word_counter которая считает количество слов в тексте.
 #  Функция должна принимать либо путь к файлу, либо строку с текстом
 
-str = 'a e r t y y se sfd sdfsf'    
+filename = "words.txt"
+numWords = 0
+
+with open(filename, 'r') as file:
+    for line in file:
+        wordList = line.split()
+        numWords +=len(wordList)
+print('Number of words: ', numWords)
+
+def user_input():
+    string = input('''Enter the sentence to count the number of words,
+    and Press Enter to end the sentence: ''')
+    return string
 
 def word_counter(s):
-    words = str.split()
-    print('Number of words: ',len(words))
+    my_list = s.split()
+    print('Number of words: ',len(my_list))
+    
+s = user_input()
+word_counter(s)
 
-word_counter(str)
 
+import os
+def word_counter(filename):
+     
+    with open(filename, encoding="utf8") as file:
+        text = file.read()
+    text = text.replace("\n", " ")
+    text = text.replace(",", " ").replace(".", " ").replace("?", " ").replace("!", " ").replace(";", " ")
+    words = text.split()
+    words.sort()
+    return words
+ 
+def main():
+    choice = int(input("Введите 1 что бы прочитать файл или 2 что бы ввести строку: "))
+
+    if  choice <= 1:
+        filename = input("Введите путь к файлу: ")
+        if not os.path.exists(filename):
+            print("Указанный файл не существует")
+        else:
+            words = word_counter(filename)
+            print("Кол-во слов: %d" % len(words))
+    else:
+        listWords = input("Введите слова: ")
+        listWords = listWords.replace(",", " ").replace(".", " ").replace("?", " ").replace("!", " ").replace(";", " ")
+        w_list = listWords.split()
+        print("Кол-во слов: %d" % len(w_list))
+
+
+if __name__ == "__main__":
+    main()
