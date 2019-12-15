@@ -20,8 +20,7 @@ print("Fibonacci sequence is: ", fibonacci)
 
 # 2. Дан текстовый файл, содержащий целые числа. Удалить из него все четные числа.
 
-with open('numbers.txt') as f:
-    numbers = [int(x) for x in next(f).split()] # read first line
+numbers = [line.rstrip('\n') for line in open('numbers.txt')]
 print(numbers)
 print(type(numbers))
 for i  in numbers:
