@@ -20,35 +20,29 @@ print("Fibonacci sequence is: ", fibonacci)
 
 # 2. Дан текстовый файл, содержащий целые числа. Удалить из него все четные числа.
 
-numbers = [line.rstrip('\n') for line in open('numbers.txt')]
-print(numbers)
-print(type(numbers))
-for i  in numbers:
-    	if(i%2 == 0):
-	        numbers.remove(i)
-print(numbers)
-print(type(numbers))
-
 f = open('numbers.txt', 'r+')
 lines = f.read().split()
 numbers =[int(e.strip()) for e in lines]
-
-print(lines)
-print(type(lines))
-print(type(lines[1]))
 print(numbers)
-print(type(numbers))
-for i  in numbers:
-    if(i%2 == 0):
-	     numbers.remove(i)
-print(numbers)
-print(type(numbers))
-print(type(numbers[1]))
-f.seek(0)
+odd = []
+for num in numbers:
+    if(num % 2 != 0):
+        odd.append(num)
+        f.seek(0)
+        f.write(str(odd))
+        f.truncate()
+        f.flush()
 
-f.write(str(numbers))
-f.truncate()
-f.close
+print(odd)
+print(type(odd))
+print(type(odd[1]))
+       
+a = ['a', 'b', 'c']
+for i in a:
+    print(i,end = ' ')
+
+
+
 
 
 
